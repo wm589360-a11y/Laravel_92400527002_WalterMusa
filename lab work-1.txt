@@ -1,0 +1,209 @@
+class.php
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>The Fruit Program</h1>
+
+    <?php
+    class Fruit
+    {
+        public string $name;
+        public string $color;
+
+        function set_name(string $name): void
+        {
+            $this->name = $name;
+        }
+
+        function get_name(): string
+        {
+            return $this->name;
+        }
+    }
+
+    ?>
+
+</body>
+</html>
+
+obj.php
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>The Fruit Program</h1>
+
+    <?php
+        class Fruit
+        {
+            public $name;
+            public $color;
+
+            function set_name($name)
+            {
+                $this->name = $name;
+            }
+
+            function get_name()
+            {
+                return $this->name;
+            }
+        }
+
+        $apple = new Fruit();
+        $apple->set_name("Apple");
+        echo $apple->get_name();
+        
+        echo "<br>";
+
+        $banana = new Fruit();
+        $banana->set_name("Banana");
+        echo $banana->get_name();
+    ?>
+
+</body>
+</html>
+
+constructor.php
+
+<!DOCTYPE html>
+<html>
+    <body>
+  <?php
+        class Fruit{
+            public $name;
+            public $color;
+
+            function __construct($name, $color){
+                $this->name = $name;
+                $this->color = $color;
+            }
+
+            function get_name(){
+                return $this->name;
+            }
+
+            function get_color(){
+                return $this->color;
+            }
+        }
+        $strawberry = new Fruit("Strawberry", "Pink");
+        echo $strawberry->get_name();
+        echo "<br>";
+        echo $strawberry->get_color();
+  ?>
+    
+</body>
+</html>
+
+destructor.php
+
+<!DOCTYPE html>
+<html>
+    <body>
+  <?php
+        class Fruit{
+            public $name;
+            public $color;
+
+            function __construct($name, $color){
+                $this->name = $name;
+                $this->color = $color;
+            }
+
+            function __destruct(){
+                echo "The fruit is {$this->name} and the color is {$this->color}.";
+            }
+        }
+
+        $strawberry = new Fruit("Strawberry", "Pink");
+        
+  ?>
+    
+</body>
+</html>
+
+inheritance.php
+
+<!DOCTYPE html>
+<html>
+    <body>
+  <?php
+        class Fruit{
+            public $name;
+            public $color;
+
+            function __construct($name, $color){
+                $this->name = $name;
+                $this->color = $color;
+        
+                }
+                      
+                Public function intro(){
+                    echo "The fruit is {$this->name} and the color is {$this->color}.";
+                }
+        }
+               class Charry extends Fruit{
+
+                    public function massage(){
+                        echo " Is cherry a fruit or a berry ?.";
+                    }
+
+                }
+
+                $cherry = new Charry("Cherry", "bright pink", 20);
+                $cherry->intro();
+
+           
+  ?>
+    
+</body>
+</html>
+
+ploymorphism.php
+
+<!DOCTYPE html>
+<html>
+    <body>
+  <?php
+        class Fruit{
+            public $name;
+            public $color;
+
+            function __construct($name, $color){
+                $this->name = $name;
+                $this->color = $color;
+        
+                }
+                      
+                Public function intro(){
+                    echo "The fruit is {$this->name} and the color is {$this->color}.";
+                }
+        }
+               class Charry extends Fruit{
+                public $weight;
+                public function __construct($name, $color, $weight){
+                    $this->name = $name;
+                    $this->color = $color;
+                    $this->weight = $weight; 
+
+                }
+                public function intro(){
+                    echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight} gram.";
+                }
+
+               }
+            
+                $cherry = new Charry("Cherry", "bright pink", 20);
+                $cherry->intro();
+                
+           
+  ?>
+    
+</body>
+</html>
