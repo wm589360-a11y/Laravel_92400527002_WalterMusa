@@ -1,0 +1,70 @@
+Create multiple routes using laravel web.php and connect routes with those views.
+
+1. Home
+2. About
+3. Contact
+
+
+about.blade.php
+
+@extends('layouts.app')
+
+@section('title', 'About')
+
+@section('content')
+    <h1>About Us</h1>
+    <p>This page is served by the <code>/about</code> route. Add information about your project or organization here.</p>
+@endsection
+
+contact.blade.php
+
+@extends('layouts.app')
+
+@section('title', 'Contact')
+
+@section('content')
+    <h1>Contact Us</h1>
+    <p>This page is served by the <code>/contact</code> route.</p>
+    <p>Email: info@example.com<br>Phone: +91 00000 00000</p>
+@endsection
+
+home.blade.php
+
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('content')
+    <h1>Welcome to the Home Page</h1>
+    <p>This page is served by the <code>/</code> route defined in <code>routes/web.php</code>.</p>
+@endsection
+
+console.php
+
+<?php
+
+use Illuminate\Foundation\Inspiring;
+use Illuminate\Support\Facades\Artisan;
+
+Artisan::command('inspire', function () {
+    $this->comment(Inspiring::quote());
+})->purpose('Display an inspiring quote');
+
+web.php
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
